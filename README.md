@@ -6,6 +6,7 @@ Now more than ever, people do not step foot into a restaurant without copious am
   <img src="png_images/nevadaBigMap.png" width="400" />
   <img src="png_images/NevadaSmallMap.png" width="400" /> 
 </p>
+These graphs show that the majority of our data points come from the Las Vegas Strip. It should be noted that our findings are localized to that area.
 
 ---
 # Cleaning and Pre-processing the Data
