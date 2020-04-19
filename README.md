@@ -92,7 +92,7 @@ A supervised learning approach for predictive data analysis, specifically tree-b
 + Regression: Linear Regression and Ridge Regression
 + Tree-based Models: Decision Tree and Random Forest
 
-The Sci-kit learn packages for the chosen regression and tree-based models were used. A 70 - 30 split was used in order to split the data into a training set and a testing set. 
+The Sci-kit learn packages for the chosen regression and tree-based models were used. A 80 - 20 split was used in order to split the data into a training set and a testing set. 
 
 # PCA/Regression
 We first used PCA to try and find the optimal variable to begin our regression. However, upon further review, the first principal component was only able to explain BLANK% of the data. The second principal component explained BLANK% of the data. The following graph follows:
