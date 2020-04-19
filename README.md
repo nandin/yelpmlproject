@@ -122,7 +122,7 @@ When running the Random Forest Classifier on the dataset, three parameters were 
 
 1. The number of trees in the forest
 2. The criterion for deciding the split when building a tree
-3. The maximum depth for each of the trees in teh forest
+3. The maximum depth for each of the trees in the forest
 
 ### Number of Trees in the Forest
 
@@ -134,10 +134,21 @@ From the plot above, there seems to be a rise in accuracy from around 21% to aro
 
 <img src="png_images/SplitCriterionEffect.png" width = "800" />
 
-The two splitting criterion that Random Forest Classifier can use are the Gini impurity and Information Gain Entropy. In order to see if any differences in accuracy due to the splitting critera is maintained, the number of trees in the model was varied. From the plot above, there seems to be no relationship between the accuracy of the Random Forest model and the splitting criterion it utilizes. 
+The two splitting criterion that Random Forest Classifier can use are the Gini Impurity and Information Gain Entropy. The number of trees in the model were varied in order to see if any differences in accuracy could be maintained. From the plot above, there seems to be no relationship between the accuracy of the Random Forest model and the splitting criterion it utilizes. 
 
+### Maximum Depth of Trees
 
+<img src="png_images/treeDepthVsAccuracy.png" width = "800" />
 
+A range from 10-100 was examined for the maximum depth of a tree and its effect on the accuracy of the model. The model's accuracy seems to peak at around a depth of 10, before stabilizing around 27 %. Perhaps by minimizing the depth of the tree, the model avoids overfitting the training data and creates better predictions. 
+
+### Results
+
+A Random Forest Classifier was run with the following parameters: 
+
+| Parameter | Value |
+| :---: | :---:|
+| Number of Trees | 02934|
 
 
 
