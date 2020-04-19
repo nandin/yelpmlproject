@@ -1,1 +1,3 @@
+title: Yelp Star Rating Predictor
+description: This project aims to use a restaurant's yelp data in order to predict the how many stars it will recieve  
 theme: jekyll-theme-cayman
