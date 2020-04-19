@@ -76,7 +76,7 @@ The resulting dataset contained information about 2,503 different restaurants in
 
 Some features like *Good for Groups* and *Good for Kids*, which seemed like they would logically have some influence on the rating of a restaurant, ultimately had very little correlation to the number of stars a restaurant recieved. Features, like the *Ambience* and *Price Range* of the restaurant, were suspected of being indicators of the reating of a restaurant. The correlation matrix confirmed that these features had a stronger correlation to the number of stars a restaurant has than other features. An absolute value of a correlation greater than 0.1 was set as the cut off for which features will be kept in the dataset. 
 
-To further reduce the number of features in the dataset, the overall correlation matrix was analyzed in order to determine if any features were strongly related to one or another. If one feature had a strong correlation to another feature, one of them could be discared and the variance in the data would not decrease significantly. 
+To further reduce the number of features in the dataset, the overall correlation matrix was analyzed in order to determine if any features were strongly related to one or another. If one feature had a strong correlation to another feature, one of them could be discarded and the variance in the data would not decrease significantly. 
 
 <img src="png_images/CorrelationMatrix.png" width = "900" />
 
@@ -87,10 +87,12 @@ The final dataset consists of 11 features and 2,503 restaurants. The correspondi
 ---
 
 # Methods
-We used a supervised learning approach for predictive data analysis, and utilized tree-based models and regression.
+A supervised learning approach for predictive data analysis, specifically tree-based models and regression, were utilized. 
 
-Regression: Linear Regression and Ridge Regression
-Tree-based Models: Decision Tree and Random Forest
++ Regression: Linear Regression and Ridge Regression
++ Tree-based Models: Decision Tree and Random Forest
+
+The Sci-kit learn packages for the chosen regression and tree-based models were used. A 70 - 30 split was used in order to split the data into a training set and a testing set. 
 
 # PCA/Regression
 We first used PCA to try and find the optimal variable to begin our regression. However, upon further review, the first principal component was only able to explain BLANK% of the data. The second principal component explained BLANK% of the data. The following graph follows:
@@ -111,6 +113,28 @@ The rmse's of both regressions were similar and very high, so we can conclude th
 However, we can conclude that 6 principal components is that smallest number that still represents the data at an acceptable level.
 
 Ishita to do maybe: Graph breakdown of features that make these up.
+
+# Decision Tree
+
+# Random Forest Classifier
+
+When running the Random Forest Classifier on the dataset, three parameters were chosen to be explored in determining their effect on the accuracy of the model. The three parameters were: 
+
+1. The number of trees in the forest
+2. The criterion for deciding the split when building a tree
+3. The maximum depth for each of the trees in teh forest
+
+### Number of Trees in the Forest
+
+<img src="png_images/treeVsAccuracy.png" width = "800" />
+
+From the plot above, there seems to be a rise in accuracy from around 21% to around 27% when raising the number of trees in the forest from 1 to 20. After that point, the accuracy oscillates by approximately a percent around 26%, indicating that additional trees do not impact the accuracy of the Random Forest. 
+
+### Split Criterion
+
+
+
+
 
 
 

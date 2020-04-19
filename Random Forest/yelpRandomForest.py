@@ -29,33 +29,49 @@ easierStandardDev = np.mean(easierTestingLabels)
 # see effect of number of trees in random forest on data
 RMSE = np.zeros(100)
 accuracy = np.zeros(100)
-RMSEeasy = np.zeros(100)
-accuracyeasy = np.zeros(100)
+#RMSEeasy = np.zeros(100)
+#accuracyeasy = np.zeros(100)
 for i in range(100):
 	model = RandomForestClassifier(n_estimators = i+1, 
 									bootstrap = True, 
 									criterion = 'entropy', 
 									max_features = 'sqrt')
+	"""
 	modelEasy = RandomForestClassifier(n_estimators = i+1, 
 									bootstrap = True, 
 									criterion = 'entropy', 
 									max_features = 'sqrt')
+									"""
 	model.fit(trainingData, trainingLabels)
-	modelEasy.fit(trainingData, easierTrainingLabels)
+	#modelEasy.fit(trainingData, easierTrainingLabels)
 
 	predictedLabels = model.predict(testingData)
-	easierPredLabels = modelEasy.predict(testingData)
+	#easierPredLabels = modelEasy.predict(testingData)
 
 	RMSE[i] = np.sqrt(np.sum(np.square(predictedLabels - testingLabels))/np.size(predictedLabels))
 	#accuracy[i] = model.score(testingData, testingLabels)
 	accuracy[i] = np.sum(np.where(predictedLabels == testingLabels, 1, 0))/np.size(predictedLabels)
-
-	RMSEeasy[i] = np.sqrt(np.sum(np.square(easierPredLabels - easierTestingLabels))/np.size(easierPredLabels))
-	accuracyeasy[i] = np.sum(np.where(easierPredLabels == easierTestingLabels, 1, 0))/np.size(easierPredLabels)
+accuracy = accuracy * 100
+# Optimizing the number of trees in the forest
+numberTrees = np.arange(1, 101, 1)
+plt.style.use('seaborn')
+plt.scatter(numberTrees, accuracy, c = (.26, 0.55, 0.4), s  = 20)
+plt.xlabel('Number of Trees')
+plt.ylabel('Accuracy (%)')
+plt.ylim((0, 50))
+plt.yticks(np.arange(0, 51, 5))
+plt.xlim(0, 100)
+plt.xticks(np.arange(0, 101, 10))
+plt.title('Relationship Between Number of Trees and Accuracy')
+plt.tight_layout()
+plt.show()
+	#RMSEeasy[i] = np.sqrt(np.sum(np.square(easierPredLabels - easierTestingLabels))/np.size(easierPredLabels))
+	#accuracyeasy[i] = np.sum(np.where(easierPredLabels == easierTestingLabels, 1, 0))/np.size(easierPredLabels)
 	#accuracyeasy[i] = model.score(testingData, easierTestingLabels)
-NRMSE = RMSE/StandardDev
-NRMSEeasy = RMSEeasy/easierStandardDev
+#NRMSE = RMSE/StandardDev
+#NRMSEeasy = RMSEeasy/easierStandardDev
 #print(accuracy)
+"""
 numberTrees = np.arange(1, 101, 1)
 plt.subplot(1,3,1)
 plt.scatter(numberTrees, accuracy, c = 'b')
@@ -67,6 +83,7 @@ plt.subplot(1,3,3)
 plt.scatter(numberTrees, NRMSE, c = 'b')
 plt.scatter(numberTrees, NRMSEeasy, c = 'r')
 plt.show()
+"""
 
 
 
