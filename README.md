@@ -73,6 +73,12 @@ The resulting dataset contained information about 2,503 different restaurants in
 
 <img src="png_images/FeatureCorrelation2Label.png" width="800" />
 
+Some features like *Good for Groups* and *Good for Kids*, which seemed like they would logically have some influence on the rating of a restaurant, ultimately had very little correlation to the number of stars a restaurant recieved. Features, like the *Ambience* and *Price Range* of the restaurant, were suspected of being indicators of the reating of a restaurant. The correlation matrix confirmed that these features had a stronger correlation to the number of stars a restaurant has than other features. An absolute value of a correlation greater than 0.1 was set as the cut off for which features will be kept in the dataset. 
+
+To further reduce the number of features in the dataset, the overall correlation matrix was analyzed in order to determine if any features were strongly related to one or another. If one feature had a strong correlation to another feature, one of them could be discared and the variance in the data would not decrease significantly. 
+
+<img src="png_images/CorrelationMatrix.png" width = "800" />
+
 ---
 
 # Methods
