@@ -69,6 +69,7 @@ The two main concerns with the restuarant data that needed to be addressed were 
     + State 
     + Business Id
 
+## Feature Selection
 The resulting dataset contained information about 2,503 different restaurants in the Las Vegas area, with each restaurant consisting of data from 22 different features. In order to reduce the number of features in our dataset even further, a correlation matrix was created to determine the relationship between various features and eliminate features with weak correlations to our label. 
 
 <img src="png_images/FeatureCorrelation2Label.png" width="800" />
@@ -77,7 +78,11 @@ Some features like *Good for Groups* and *Good for Kids*, which seemed like they
 
 To further reduce the number of features in the dataset, the overall correlation matrix was analyzed in order to determine if any features were strongly related to one or another. If one feature had a strong correlation to another feature, one of them could be discared and the variance in the data would not decrease significantly. 
 
-<img src="png_images/CorrelationMatrix.png" width = "800" />
+<img src="png_images/CorrelationMatrix.png" width = "900" />
+
+The strongest correlation between two features is found to be 0.58 between *Alcohol* and *Price Range*. However, no two features seem correlated enough to each other to reasonably leave them out of the dataset, so no changes are made. 
+
+The final dataset consists of 11 features and 2,503 restaurants. The corresponding label for each restaurant is the star rating they have recieved in yelp. 
 
 ---
 
