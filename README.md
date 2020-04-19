@@ -9,9 +9,10 @@ Now more than ever, people do not step foot into a restaurant without copious am
 
 ---
 # Cleaning and Pre-processing the Data
-The original dataset contained information on 209,393 businesses, not just restaurants, that were found across 11 different metropolitan areas of the world. The data for each business contained the field: *category*. It was determined that to narrow our data to only include information on restaurants, retaining the businesses that contained *Restaurant* or *food* in the *category* field would be acceptable. 
+## Yelp Dataset -> Las Vegas Restaurant Dataset
+The original dataset contained information on 209,393 businesses, not just restaurants, that were found across 11 different metropolitan areas of the world. The data for each business contained the field: **category**. It was determined that to narrow our data to only include information on restaurants, retaining the businesses that contained *Restaurant* or *food* in the *category* field would be acceptable. 
 
-The resulting dataset contained information on 42152 businesses that presumably all sold food to their customers. In order for the location of these restaurants to not affect the results of any machine learning modeling, it was decided to focus on restaurants contained in only one city. The top 5 cities by count of restaurants is shown below. 
+The resulting dataset contained information on 42,152 businesses that presumably all sold food to their customers. In order for the location of these restaurants to not affect the results of any machine learning modeling, it was decided to focus on restaurants contained in only one city. The top 5 cities by count of restaurants is shown below. 
 
 | City | Number of Restaurants|
 | :---: | :---:|
@@ -21,6 +22,31 @@ The resulting dataset contained information on 42152 businesses that presumably 
 |Charlotte | 2201 | 
 |Montreal | 2013 | 
 
+The decision was made to study a city in the United States so Las Vegas became the location of choice and the dataset was further filtered. 
+## Cleaning the Las Vegas Restaurant Dataset
+The two main concerns with the restuarant data that needed to be addressed were the completeness of each feature in the dataset and the completeness of each restaurant's data in the dataset. The following procedure was used to clean the data as much as possible. 
+1. Features with less than 15% completeness were eliminated from the dataset. Eliminated features are shown below:
+  |By Appointment Only| Coat Check|
+  |Drive Thru| Smoking |
+  |Dogs Allowed| BYOB |
+  |Happy Hour| Corkage |
+  |Business Accepts Bitcoin| Ages Allowed |
+  |Accepts Insurance| Dietary Restrictions |
+  |Music| Counter Service |
+  |Best Nights| Open 24 Hours |
+  |Good For Dancing| Hair Specializes In|
+2. Restaurants with less than 80% completeness of data were discarded. 
+  |Number of Restaurants Kept| 17737|
+  |Number of Restaurants Eliminated| 24415|
+3. Features with less than 80% completeness were eliminated from the dataset. Eliminated features are shown below: 
+  |Business Accepts Credit Cards| Wheelchair Accesible |
+  |Good for Meal| Restaurants Table Service |
+4. Features that could not be transformed into values that a machine learning model could use as data were deleted next. Eliminated feature are shown below:
+  |Name| Business Parking|
+  |Address| Categories |
+  |City| Hours|
+  |State| Business Id|
+
 ---
 
 # Methods
@@ -29,7 +55,7 @@ We used a supervised learning approach for predictive data analysis, and utilize
 Regression: Linear Regression and Ridge Regression
 Tree-based Models: Decision Tree and Random Forest
 
-## PCA/Regression
+# PCA/Regression
 We first used PCA to try and find the optimal variable to begin our regression. However, upon further review, the first principal component was only able to explain BLANK% of the data. The second principal component explained BLANK% of the data. The following graph follows:
 
 Ishita to do: insert graph #k vs explained_variance
