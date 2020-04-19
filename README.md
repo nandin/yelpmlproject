@@ -68,6 +68,7 @@ The two main concerns with the restuarant data that needed to be addressed were 
     + Hours 
     + State 
     + Business Id
+
 The resulting dataset contained information about 2,503 different restaurants in the Las Vegas area, with each restaurant consisting of data from 22 different features. In order to reduce the number of features in our dataset even further, a correlation matrix was created to determine the relationship between various features and eliminate features with weak correlations to our label. 
 
 <img src="png_images/FeatureCorrelation2Label.png" width="800" />
