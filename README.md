@@ -105,7 +105,7 @@ We hypothesized after about six principal components, the rmse of the linear reg
 
 Running the data through a Ridge Regression follows the same trend:
 
-<img src="png_images/ridgeVpca.png" width="800" />
+<img src="png_images/ridgeVpcaNew.png" width="800" />
 
 The rmse's of both regressions were similar, at 1.48086 for linear and 1.48096 for ridge. For data in the range [1,10], these errors are very high. We can conclude that neither regression is accurate in predicting the data, but one does not perform significantly better than the other.
 
