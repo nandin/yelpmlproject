@@ -11,6 +11,7 @@ def main():
 	data = data[~pd.isnull(data).any(axis=1)]
 	stars = data.T[12]
 	data = (data.T[2:12]).T
+	# plotVariance(data)
 
 	# pca over all the components
 	linearAccuracy = np.zeros(10)
@@ -39,16 +40,8 @@ def main():
 		rmseResult = rmse(predStars, testStars)
 		ridgeAccuracy[i - 1] = rmseResult
 
-	# visualize
-	numberComponents = np.arange(1, 11, 1)
-	plt.xlabel("Number of Components")
-	plt.scatter(numberComponents, linearAccuracy)
-	plt.ylabel("Linear RMSE")
-	plt.show()
-	plt.scatter(numberComponents, ridgeAccuracy)
-	plt.xlabel("Number of Components")
-	plt.ylabel("Ridge RMSE")
-	plt.show()
+	plotRegressions(linearAccuracy, ridgeAccuracy)
+	# plotVariance(data)
 
 
 def split(arr, labels):
@@ -61,6 +54,35 @@ def split(arr, labels):
 
 	return trainX, testX, trainY, testY
 
+def plotRegressions(linearAccuracy, ridgeAccuracy):
+	numberComponents = np.arange(1, 11, 1)
+	plt.style.use('seaborn')
+	Linear = plt.scatter(numberComponents, linearAccuracy, c = (.15, 0.35, 0.58))
+	plt.xlabel('Number of Components')
+	plt.ylabel('RMSE')
+	plt.title('Number of Components vs. RMSE (Linear)')
+	plt.tight_layout()
+	plt.show()
+
+	Ridge = plt.scatter(numberComponents, ridgeAccuracy, c = (0.27, 0.58, 0.37))
+	plt.xlabel('Number of Components')
+	plt.ylabel('RMSE')
+	plt.title('Number of Components vs. RMSE (Ridge)')
+	plt.tight_layout()
+	plt.show()
+
+def plotVariance(data): 
+	pca = PCA()
+	pca.fit(data)
+	variances = pca.explained_variance_ratio_
+	numberComponents = np.arange(1, 11, 1)
+	plt.style.use('seaborn')
+	plt.scatter(numberComponents, variances, c = (0.15, 0.35, 0.58), s = 30)
+	plt.xlabel('Number of Principal Components')
+	plt.ylabel('Explained Variance Ratio')
+	plt.title('Variances Explained by Principal Components')
+	plt.tight_layout()
+	plt.show()
 
 def rmse(pred, label): 
     N = pred.shape[0]
