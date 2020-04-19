@@ -92,27 +92,23 @@ A supervised learning approach for predictive data analysis, specifically tree-b
 + Regression: Linear Regression and Ridge Regression
 + Tree-based Models: Decision Tree and Random Forest
 
-The Sci-kit learn packages for the chosen regression and tree-based models were used. A 80 - 20 split was used in order to split the data into a training set and a testing set. 
+The Sci-kit learn packages for the chosen regression and tree-based models were used. A 70 - 30 split was used in order to split the data into a training set and a testing set. 
 
 # PCA/Regression
-We first used PCA to try and find the optimal variable to begin our regression. However, upon further review, the first principal component was only able to explain BLANK% of the data. The second principal component explained BLANK% of the data. The following graph follows:
+We first used PCA to try and find the optimal variable to begin our regression. However, upon further review, the first principal component was only able to explain 32% of the data. The second principal component explained 19% of the data. The following graph follows:
 
-Ishita to do: insert graph #k vs explained_variance
+<img src="png_images/varsVcomponents.png" width="800" />
 
 We hypothesized after about six principal components, the rmse of the linear regression would flatten, since that is when the explained variance reaches negligible levels. As expected: the graph of the linear rmse against the number of k components follows:
 
-<img src="png_images/linearVpca.png" width="400" />
+<img src="png_images/linearVpca.png" width="800" />
 
 Running the data through a Ridge Regression follows the same trend:
 
-<img src="png_images/ridgeVpca.png" width="400" />
+<img src="png_images/ridgeVpcaNew.png" width="800" />
 
-The rmse's of both regressions were similar and very high, so we can conclude that both regressions are equally bad at predicting the data.
-(Ishita to do: Say this better and add specific RMSE's)
+The rmse's of both regressions were similar, at 1.48086 for linear and 1.48096 for ridge. For data in the range [1,10], these errors are very high. We can conclude that neither regression is accurate in predicting the data, but one does not perform significantly better than the other.
 
-However, we can conclude that 6 principal components is that smallest number that still represents the data at an acceptable level.
-
-Ishita to do maybe: Graph breakdown of features that make these up.
 
 # Decision Tree
 
