@@ -148,7 +148,17 @@ A Random Forest Classifier was run with the following parameters:
 
 | Parameter | Value |
 | :---: | :---:|
-| Number of Trees | 02934|
+| Number of Trees | 30|
+| Criterion | Entropy | 
+| Max Depth | 10 |
+
+The resulting accuracy was 28.9%. This poor accuracy is likely a result of the way the accuracy is being calculated. As there are 10 different labels, a high accuracy would mean the model is able to differentiate between all of the labels well. Perhaps creating a model that can predict the star rating of a restaurant to that degree of accuracy isn't plausible with the current data. 
+
+In order to test this theory, the labels for the dataset were adjust to be binary labels. A star rating of 2.5 or less was labeled a *Bad Restaurant* and a star rating of greater than 2.5 was labeled a *Good Restaurant*. The Random Forest Classifier was run over a range of a number of trees using the entropy criterion for splitting and a maximum depth per tree of 10. The results are shown below: 
+
+<img src="png_images/BinaryVsMultiClass.png" width = "800" />
+
+
 
 
 
