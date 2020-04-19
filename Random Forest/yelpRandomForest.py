@@ -31,17 +31,20 @@ RMSE = np.zeros(100)
 accuracy = np.zeros(100)
 #RMSEeasy = np.zeros(100)
 #accuracyeasy = np.zeros(100)
+
+"""
+# Optimizing the number of trees in the forest
 for i in range(100):
 	model = RandomForestClassifier(n_estimators = i+1, 
 									bootstrap = True, 
 									criterion = 'entropy', 
 									max_features = 'sqrt')
-	"""
+	
 	modelEasy = RandomForestClassifier(n_estimators = i+1, 
 									bootstrap = True, 
 									criterion = 'entropy', 
 									max_features = 'sqrt')
-									"""
+
 	model.fit(trainingData, trainingLabels)
 	#modelEasy.fit(trainingData, easierTrainingLabels)
 
@@ -52,7 +55,6 @@ for i in range(100):
 	#accuracy[i] = model.score(testingData, testingLabels)
 	accuracy[i] = np.sum(np.where(predictedLabels == testingLabels, 1, 0))/np.size(predictedLabels)
 accuracy = accuracy * 100
-# Optimizing the number of trees in the forest
 numberTrees = np.arange(1, 101, 1)
 plt.style.use('seaborn')
 plt.scatter(numberTrees, accuracy, c = (.26, 0.55, 0.4), s  = 20)
@@ -63,6 +65,36 @@ plt.yticks(np.arange(0, 51, 5))
 plt.xlim(0, 100)
 plt.xticks(np.arange(0, 101, 10))
 plt.title('Relationship Between Number of Trees and Accuracy')
+plt.tight_layout()
+plt.show()
+"""
+# Difference between split criterion
+accuracyEntropy = np.zeros(100)
+accuracyGini = np.zeros(100)
+numberTrees = np.arange(1, 101, 1)
+for i in range(100):
+	modelEntropy = RandomForestClassifier(n_estimators = i + 1,
+									bootstrap = True,
+									criterion = 'entropy',
+									max_features = 'sqrt')
+	modelGini = RandomForestClassifier(n_estimators = i + 1,
+									bootstrap = True,
+									criterion = 'gini',
+									max_features = 'sqrt')
+	modelEntropy.fit(trainingData, trainingLabels)
+	modelGini.fit(trainingData, trainingLabels)
+	accuracyEntropy[i] = modelEntropy.score(testingData, testingLabels) * 100
+	accuracyGini[i] = modelGini.score(testingData, testingLabels) * 100
+plt.style.use('seaborn')
+plt.scatter(numberTrees, accuracyEntropy, c = (.15, 0.35, 0.58), s  = 30)
+plt.scatter(numberTrees, accuracyGini, c = (0.27, 0.58, 0.37), s = 30)
+plt.xlabel('Number of Trees')
+plt.ylabel('Accuracy (%)')
+plt.title('Effect of Split Criterion')
+plt.ylim((20, 30))
+plt.yticks(np.arange(20, 31, 1))
+plt.xlim(0, 100)
+plt.xticks(np.arange(0, 101, 10))
 plt.tight_layout()
 plt.show()
 	#RMSEeasy[i] = np.sqrt(np.sum(np.square(easierPredLabels - easierTestingLabels))/np.size(easierPredLabels))

@@ -132,6 +132,9 @@ From the plot above, there seems to be a rise in accuracy from around 21% to aro
 
 ### Split Criterion
 
+<img src="png_images/SplitCriterionEffect.png" width = "800" />
+
+The two splitting criterion that Random Forest Classifier can use are the Gini impurity and Information Gain Entropy. In order to see if any differences in accuracy due to the splitting critera is maintained, the number of trees in the model was varied. From the plot above, there seems to be no relationship between the accuracy of the Random Forest model and the splitting criterion it utilizes. 
 
 
 
