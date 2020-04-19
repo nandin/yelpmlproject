@@ -86,15 +86,42 @@ for i in range(100):
 	accuracyEntropy[i] = modelEntropy.score(testingData, testingLabels) * 100
 	accuracyGini[i] = modelGini.score(testingData, testingLabels) * 100
 plt.style.use('seaborn')
-plt.scatter(numberTrees, accuracyEntropy, c = (.15, 0.35, 0.58), s  = 30)
-plt.scatter(numberTrees, accuracyGini, c = (0.27, 0.58, 0.37), s = 30)
+Entropy = plt.scatter(numberTrees, accuracyEntropy, c = (.15, 0.35, 0.58), s  = 30)
+Gini = plt.scatter(numberTrees, accuracyGini, c = (0.27, 0.58, 0.37), s = 30)
 plt.xlabel('Number of Trees')
 plt.ylabel('Accuracy (%)')
 plt.title('Effect of Split Criterion')
+plt.legend((Entropy, Gini),
+           ('Information Gain', 'Gini Impurity'))
 plt.ylim((20, 30))
 plt.yticks(np.arange(20, 31, 1))
 plt.xlim(0, 100)
 plt.xticks(np.arange(0, 101, 10))
+plt.tight_layout()
+plt.show()
+
+"""
+# Max Depth vs Accuracy
+
+accuracyDepth = np.zeros(90)
+depth = np.arange(10, 100, 1)
+for i in range(90):
+	modelDepth = RandomForestClassifier(n_estimators = 30,
+										bootstrap = True,
+										criterion = 'entropy',
+										max_features = 'sqrt',
+										max_depth = depth[i])
+	modelDepth.fit(trainingData, trainingLabels)
+	accuracyDepth[i] = modelDepth.score(testingData, testingLabels) * 100
+plt.style.use('seaborn')
+plt.scatter(depth, accuracyDepth, c = (0.27, 0.58, 0.37), s  = 30)
+plt.xlabel('Maximum Depth')
+plt.ylabel('Accuracy (%)')
+plt.title('Maximum Tree Depth vs Accuracy')
+plt.ylim((24, 31))
+plt.yticks(np.arange(24, 35, 1))
+plt.xlim((10, 100))
+plt.xticks(np.arange(10, 101, 10))
 plt.tight_layout()
 plt.show()
 	#RMSEeasy[i] = np.sqrt(np.sum(np.square(easierPredLabels - easierTestingLabels))/np.size(easierPredLabels))
@@ -103,7 +130,6 @@ plt.show()
 #NRMSE = RMSE/StandardDev
 #NRMSEeasy = RMSEeasy/easierStandardDev
 #print(accuracy)
-"""
 numberTrees = np.arange(1, 101, 1)
 plt.subplot(1,3,1)
 plt.scatter(numberTrees, accuracy, c = 'b')
