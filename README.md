@@ -27,24 +27,47 @@ The decision was made to study a city in the United States so Las Vegas became t
 The two main concerns with the restuarant data that needed to be addressed were the completeness of each feature in the dataset and the completeness of each restaurant's data in the dataset. The following procedure was used to clean the data as much as possible. 
 1. Features with less than 15% completeness were eliminated from the dataset. Eliminated features are shown below:
 
-    By Appointment Only - Coat Check - Drive Thru - Smoking - Dogs Allowed - BYOB - Happy Hour - Corkage - Business Accepts Bitcoin - Ages Allowed - Accepts Insurance - Dietary Restrictions - Music - Counter Service - Best Nights - Open 24 Hours - Good For Dancing - Hair Specializes In
+    +By Appointment Only
+    +Coat Check
+    +Drive Thru
+    +Smoking
+    +Dogs Allowed
+    +BYOB
+    +Happy Hour
+    +Corkage
+    +Business Accepts Bitcoin
+    +Ages Allowed
+    +Accepts Insurance
+    +Dietary Restrictions
+    +Music
+    +Counter Service
+    +Best Nights
+    +Open 24 Hours
+    +Good For Dancing
+    +Hair Specializes In
 
 2. Restaurants with less than 80% completeness of data were discarded. 
-
-  |Number of Restaurants Kept| 17737|
-  |Number of Restaurants Eliminated| 24415|
+  
+    +Number of Restaurants Kept: 17737
+    +Number of Restaurants Eliminated: 24415
 
 3. Features with less than 80% completeness were eliminated from the dataset. Eliminated features are shown below: 
 
-  |Business Accepts Credit Cards| Wheelchair Accesible |
-  |Good for Meal| Restaurants Table Service |
+    +Business Accepts Credit Cards
+    +Wheelchair Accesible
+    +Good for Meal
+    +Restaurants Table Service
 
 4. Features that could not be transformed into values that a machine learning model could use as data were deleted next. Eliminated feature are shown below:
 
-  |Name| Business Parking|
-  |Address| Categories |
-  |City| Hours|
-  |State| Business Id|
+  +Name
+  +Business Parking
+  +Address 
+  +Categories 
+  +City 
+  +Hours 
+  +State 
+  +Business Id
 
 ---
 
