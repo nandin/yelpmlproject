@@ -97,7 +97,7 @@ The Sci-kit learn packages for the chosen regression and tree-based models were 
 # PCA/Regression
 We first used PCA to try and find the optimal variable to begin our regression. However, upon further review, the first principal component was only able to explain 32% of the data. The second principal component explained 19% of the data. The following graph follows:
 
-Ishita to do: insert graph #k vs explained_variance
+<img src="png_images/varsVcomponents.png" width="800" />
 
 We hypothesized after about six principal components, the rmse of the linear regression would flatten, since that is when the explained variance reaches negligible levels. As expected: the graph of the linear rmse against the number of k components follows:
 
