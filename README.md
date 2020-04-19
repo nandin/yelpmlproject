@@ -60,14 +60,17 @@ The two main concerns with the restuarant data that needed to be addressed were 
 
 4. Features that could not be transformed into values that a machine learning model could use as data were deleted next. Eliminated feature are shown below:
 
-  + Name
-  + Business Parking
-  + Address 
-  + Categories 
-  + City 
-  + Hours 
-  + State 
-  + Business Id
+    + Name
+    + Business Parking
+    + Address 
+    + Categories 
+    + City 
+    + Hours 
+    + State 
+    + Business Id
+The resulting dataset contained information about 2,503 different restaurants in the Las Vegas area, with each restaurant consisting of data from 22 different features. In order to reduce the number of features in our dataset even further, a correlation matrix was created to determine the relationship between various features and eliminate features with weak correlations to our label. 
+
+<img src="png_images/FeatureCorrelation2Label.png" width="800" />
 
 ---
 
