@@ -11,9 +11,9 @@ These graphs show that the majority of our data points come from the Las Vegas S
 ---
 # Cleaning and Pre-processing the Data
 ## Yelp Dataset -> Las Vegas Restaurant Dataset
-The original dataset contained information on 209,393 businesses, not just restaurants, that were found across 11 different metropolitan areas of the world. The data for each business contained the field: **category**. It was determined that to narrow our data to only include information on restaurants, retaining the businesses that contained *Restaurant* or *food* in the *category* field would be acceptable. 
+The original dataset contained information on 209,393 businesses, found across 11 different metropolitan areas of the world. We trimmed our dataset to only contain information about restaurants. We deleted businesses in the dataset that did not contain *Restaurant* or *food* in the **category** feature of our dataset. 
 
-The resulting dataset contained information on 42,152 businesses that presumably all sold food to their customers. In order for the location of these restaurants to not affect the results of any machine learning modeling, it was decided to focus on restaurants contained in only one city. The top 5 cities by count of restaurants is shown below. 
+The resulting dataset contained information on 42,152 restaurants. We decided to focus on restaurants contained in only one city. The top 5 cities by count of restaurants is shown below. 
 
 | City | Number of Restaurants|
 | :---: | :---:|
@@ -23,11 +23,12 @@ The resulting dataset contained information on 42,152 businesses that presumably
 |Charlotte | 2201 | 
 |Montreal | 2013 | 
 
-The decision was made to study a city in the United States so Las Vegas became the location of choice and the dataset was further filtered. 
-## Cleaning the Las Vegas Restaurant Dataset
-The two main concerns with the restuarant data that needed to be addressed were the completeness of each feature in the dataset and the completeness of each restaurant's data in the dataset. The following procedure was used to clean the data as much as possible. 
-1. Features with less than 15% completeness were eliminated from the dataset. Eliminated features are shown below:
+We decided to keep the dataset in the United States so Las Vegas was chosen as the location to further filter our data. 
 
+## Cleaning the Las Vegas Restaurant Dataset
+We found that the completeness of each feature and the completeness of each restaurant's data were main concerns with the dataset. The following procedure was used to clean the data. 
+
+1. Features with less than 15% completeness were eliminated from the dataset. Eliminated features are shown below:
     + By Appointment Only
     + Coat Check
     + Drive Thru
@@ -46,21 +47,15 @@ The two main concerns with the restuarant data that needed to be addressed were 
     + Open 24 Hours
     + Good For Dancing
     + Hair Specializes In
-
 2. Restaurants with less than 80% completeness of data were discarded. 
-  
     + Number of Restaurants Kept: 17737
     + Number of Restaurants Eliminated: 24415
-
 3. Features with less than 80% completeness were eliminated from the dataset. Eliminated features are shown below: 
-
     + Business Accepts Credit Cards
     + Wheelchair Accesible
     + Good for Meal
     + Restaurants Table Service
-
 4. Features that could not be transformed into values that a machine learning model could use as data were deleted next. Eliminated feature are shown below:
-
     + Name
     + Business Parking
     + Address 
@@ -69,7 +64,7 @@ The two main concerns with the restuarant data that needed to be addressed were 
     + Hours 
     + State 
     + Business Id
-
+    
 ## Feature Selection
 The resulting dataset contained information about 2,503 different restaurants in the Las Vegas area, with each restaurant consisting of data from 22 different features. In order to reduce the number of features in our dataset even further, a correlation matrix was created to determine the relationship between various features and eliminate features with weak correlations to our label. 
 

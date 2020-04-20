@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 # load the dataset
 data = np.load('FinalDataSet.npy')
+data = data[~pd.isnull(data).any(axis=1)]
 data = data.astype('int')
 data = data[:,1:]
 numDataPoints = np.size(data, 0)
@@ -28,12 +29,12 @@ accuracyEasy = np.zeros(100)
 
 # Optimizing the number of trees in the forest
 for i in range(100):
-	model = RandomForestClassifier(n_estimators = i+1, 
+	model = RandomForestClassifier(n_estimators = i + 1, 
 									bootstrap = True, 
 									criterion = 'entropy', 
 									max_features = 'sqrt')
 	
-	modelEasy = RandomForestClassifier(n_estimators = i+1, 
+	modelEasy = RandomForestClassifier(n_estimators = i + 1, 
 									bootstrap = True, 
 									criterion = 'entropy', 
 									max_features = 'sqrt')
