@@ -119,6 +119,8 @@ Normal decision tree paragraph
 
 mean squared, rsqaured, rmse
 
+<img src="decisiontreeregressors.png" width="800" />
+
 tried the Adaboost regressor
 
 Fear of overfitting so look at random forest
