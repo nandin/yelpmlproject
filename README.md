@@ -113,6 +113,16 @@ The rmse's of both regressions were similar, at 1.48086 for linear and 1.48096 f
 
 # Decision Tree
 
+In this method, we wanted to see if a regressor being could yield a better result based on the continous nature of the Stars ratings. With that, we had to drop PostalCode as a feature as it wouldn't fit the nature of the prediction model. 
+
+Normal decision tree paragraph
+
+mean squared, rsqaured, rmse
+
+tried the Adaboost regressor
+
+Fear of overfitting so look at random forest
+
 # Random Forest Classifier
 
 When running the Random Forest Classifier on the dataset, three parameters were chosen to be explored in determining their effect on the accuracy of the model. The three parameters were: 
