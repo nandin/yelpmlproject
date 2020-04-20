@@ -115,15 +115,26 @@ The rmse's of both regressions were similar, at 1.48086 for linear and 1.48096 f
 
 In this method, we wanted to see if a regressor being could yield a better result based on the continous nature of the Stars ratings. With that, we had to drop PostalCode as a feature as it wouldn't fit the nature of the prediction model. 
 
-Normal decision tree paragraph
+For decision trees, we used the scikit implementation of the regression model and attempted two variations:
 
-mean squared, rsqaured, rmse
+1. Maximum Depth allowed in the tree
+2. Boosting the Tree
+
+ ##Maximum Depth of Trees and Stablizing
+
+PUT GRAPH FOR THAT
+
+Maximum Depth: At first, we experimented with a depth level of 20 and slowly observed how the calculate errors began to go down till it hit a minimum of ____________ at around _________
+
+We used RMSE for calculating error. Used r2_score for calculating variance.
+
+We used the Adaptive Boosting (AdaBoost) regressor (scikit implementation) that is essentially increasing the weight of misclassified data points and updating,  then making a new prediction by by adding the weights of each tree times the  prediction of each tree. We hypothesized that boosting would lower our rmse. We used the maximum depth that was used in the previous model to see if boosting had actually improved the model.
 
 <img src="decisiontreeregressors.png" width="800" />
 
-tried the Adaboost regressor
+As seen, the boosting did help reduce error, although not significantly. Other methods like pruning were attempted but the tree proved too sensitive to run many of the pruning methods. 
 
-Fear of overfitting so look at random forest
+Despite the Adaboost regressor yielding better results, we feared that the decision tree regression had overfit the data  so we decided to see if a classification of the star ratings in a random forest classifier could yield better results.
 
 # Random Forest Classifier
 
