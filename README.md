@@ -122,9 +122,9 @@ For decision trees, we used the scikit implementation of the regression model an
 
  ##Maximum Depth of Trees and Stablizing
 
-PUT GRAPH FOR THAT
+<img src="rmsecomparor.png" width="800" />
 
-Maximum Depth: At first, we experimented with a depth level of 20 and slowly observed how the calculate errors began to go down till it hit a minimum of ____________ at around _________
+Maximum Depth: At first, we experimented with a depth level of 10 and observed how the calculate errors began to go down till it hit a minimum of 0.767078 at the max depth of 5 trees. We decided to use this max depth for both DecisionTreeRegressor and AdaboostRegressor to maintain consistency and because the difference between the AdaboosRegressor min and what was shown at max depth of 5 trees was minimal.
 
 We used RMSE for calculating error. Used r2_score for calculating variance.
 
