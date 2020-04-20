@@ -4,6 +4,7 @@ from sklearn import preprocessing
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.ensemble import BaggingRegressor
 import matplotlib.pyplot as plt
 import pydotplus
 import numpy as np
@@ -41,25 +42,25 @@ testingX = x.iloc[1548:]
 testingY = y.iloc[1548:]
 
 
+from sklearn.ensemble import AdaBoostRegressor
 
-#print(x)
-#print(y)
-#print(train)
-#feature_cols = ['pregnant', 'insulin', 'bmi', 'age','glucose','bp','pedigree']
+dt2 = AdaBoostRegressor(DecisionTreeRegressor(max_depth=10),
+                          n_estimators=300, random_state=99)
+dt2.fit(trainingX,trainingY)
 
-#X = pima[feature_cols] # Features
-#y = pima.label # Target variable
+
 
 ##lab_enc = preprocessing.LabelEncoder()
 #training_scores_encoded = lab_enc.fit_transform(y)
 
 
-dt = DecisionTreeRegressor(min_samples_split=20, random_state=99, max_depth = 10)
+dt = BaggingRegressor(DecisionTreeRegressor(min_samples_split=20, random_state=99, max_depth = 10))
 dt.fit(trainingX, trainingY)
 
 from sklearn.metrics import mean_squared_error, r2_score
 dt_score = dt.score(trainingX,trainingY)
 print(dt_score)
+
 
 from sklearn.metrics import mean_squared_error
 from math import sqrt
@@ -72,6 +73,13 @@ rmse = sqrt(mean_squared_error(testingY, y_predicted))
 print(rmse)
 
 
+
+#for AdaBoostRegressor
+dt2_score = dt2.score(trainingX,trainingY)
+y2_predicted = dt2.predict(testingX)
+rmse = sqrt(mean_squared_error(testingY, y2_predicted))
+print("AdaBoostRegressor rmse")
+print(rmse)
 #y_pred = dt.predict(testingX)
 #print("Accuracy:",metrics.accuracy_score(testingY, y_pred))
 # Split dataset into training set and test set
@@ -90,10 +98,40 @@ print(rmse)
 # Model Accuracy, how often is the classifier correct?
 #print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
 #divideArea = int(np.around())
-
-
-
+#Unsuccessful Pruning Attempt
 '''
+from sklearn.tree._tree import TREE_LEAF
+
+def prune_index(inner_tree, index, threshold):
+    if inner_tree.value[index].min() < threshold:
+        # turn node into a leaf by "unlinking" its children
+        inner_tree.children_left[index] = TREE_LEAF
+        inner_tree.children_right[index] = TREE_LEAF
+    # if there are shildren, visit them as well
+    if inner_tree.children_left[index] != TREE_LEAF:
+        prune_index(inner_tree, inner_tree.children_left[index], threshold)
+        prune_index(inner_tree, inner_tree.children_right[index], threshold)
+
+print(sum(dt.tree_.children_left < 0))
+# start pruning from the root
+prune_index(dt.tree_, 0, 1)
+sum(dt.tree_.children_left < 0)
+'''
+
+
+#Unsuccessful Pruning #2
+'''
+path = dt.cost_complexity_pruning_path(trainingX, trainingY)
+ccp_alphas, impurities = path.ccp_alphas, path.impurities
+fig, ax = plt.subplots()
+ax.plot(ccp_alphas[:-1], impurities[:-1], marker='o', drawstyle="steps-post")
+ax.set_xlabel("effective alpha")
+ax.set_ylabel("total impurity of leaves")
+ax.set_title("Total Impurity vs effective alpha for training set")
+'''
+
+
+
 data_feature_names = [ 'ReviewCount', 'Alcohol', 'Wifi','GoodForKids','Delivery','Reservations','Takeout', 'PriceRange']
 
 
@@ -138,7 +176,7 @@ def visualize_tree(tree, feature_names):
              "produce visualization")
 
 
-'''
+
 
 
 
