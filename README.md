@@ -180,7 +180,14 @@ In order to test this theory, the labels for the dataset were adjust to be binar
 
 ### Results
 
+We modelled various Machine Learning Models to predict Yelp star reviews in the city of Las Vegas. Our observations were the following:
 
+a) The real life dataset was noisy and incomplete, and often require a lot of cleaning up. In our case, we removed restaurants and features that did not have at least the majority of the information given.
+b) The dataset was reasonably accurately portayed using six principal components. Regardless of which type, regression was not an accurate way to predict the data.
+c) .
+d) .
+
+We unfortunately did not get the strict results that we were expecting, in which we could tell a resturant owner to fix x, y, and z to improve their ratings. If anything, this goes to show that consumers in Las Vegas expect a well-rounded experience. Restaurant owners should take care to offer the same amentities as their competitors to give themselves the best chance at high rating.
 
 
 
