@@ -103,7 +103,7 @@ We first used PCA to try and find the optimal variable to begin our regression. 
 We hypothesized after about six principal components, the rmse of the linear regression would flatten, since that is when the explained variance reaches negligible levels. As expected: the graph of the linear rmse against the number of k components and the ridge rmse against the number of k components follow:
 
 <p float="left">
-  <img src="png_images/linearVpca.png" width="400" />
+  <img src="png_images/linearVpcaNew.png" width="400" />
   <img src="png_images/ridgeVpcaNew.png" width="400" /> 
 </p>
 
