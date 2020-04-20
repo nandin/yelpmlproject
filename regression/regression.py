@@ -5,12 +5,12 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt  
 
 def main():
-	f = open('FinalDataSet.npy', 'rb') 
-
-	data = np.load(f)
+	data = np.load('FinalDataSet.npy')
 	data = data[~pd.isnull(data).any(axis=1)]
-	stars = data.T[12]
-	data = (data.T[2:12]).T
+	data = data.astype('int')
+	data = data[:,1:] #remove business ID
+	stars = data.T[11]
+	data = (data.T[0:11]).T
 	# plotVariance(data)
 
 	# pca over all the components

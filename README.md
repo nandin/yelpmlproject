@@ -98,7 +98,7 @@ We first used PCA to try and find the optimal variable to begin our regression. 
 We hypothesized after about six principal components, the rmse of the linear regression would flatten, since that is when the explained variance reaches negligible levels. As expected: the graph of the linear rmse against the number of k components and the ridge rmse against the number of k components follow:
 
 <p float="left">
-  <img src="png_images/linearVpca.png" width="400" />
+  <img src="png_images/linearVpcaNew.png" width="400" />
   <img src="png_images/ridgeVpcaNew.png" width="400" /> 
 </p>
 
@@ -115,7 +115,7 @@ For decision trees, we used the scikit implementation of the regression model an
 1. Maximum Depth allowed in the tree
 2. Boosting the Tree
 
- ##Maximum Depth of Trees and Stablizing
+ ## Maximum Depth of Trees and Stablizing
 
 <img src="rmsecomparor.png" width="800" />
 
@@ -130,6 +130,13 @@ We used the Adaptive Boosting (AdaBoost) regressor (scikit implementation) that 
 As seen, the boosting did help reduce error, although not significantly. Other methods like pruning were attempted but the tree proved too sensitive to run many of the pruning methods. 
 
 Despite the Adaboost regressor yielding better results, we feared that the decision tree regression had overfit the data so we decided to see if a classification of the star ratings in a random forest classifier would yield better results.
+
+# Decision Tree Take 2
+
+| Type | Accuracy|
+| :---: | :---:|
+|Multi-Class Label | 24.28 | 
+|Binary Label | 74.35 | 
 
 # Random Forest Classifier
 
@@ -175,7 +182,17 @@ In order to test this theory, the labels for the dataset were adjust to be binar
 
 ### Results
 
+We modelled various Machine Learning Models to predict Yelp star reviews in the city of Las Vegas. Our observations were the following:
 
+a) The real life dataset was noisy and incomplete, and often require a lot of cleaning up. In our case, we removed restaurants and features that did not have at least the majority of the information given.
+
+b) The dataset was reasonably accurately portayed using six principal components. Regardless of which type, regression was not an accurate way to predict the data.
+
+c) .
+
+d) .
+
+We unfortunately did not get the strict results that we were expecting, in which we could tell a resturant owner to fix x, y, and z to improve their ratings. If anything, this goes to show that consumers in Las Vegas expect a well-rounded experience. Restaurant owners should take care to offer the same amentities as their competitors to give themselves the best chance at high rating.
 
 
 
