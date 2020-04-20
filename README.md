@@ -120,7 +120,7 @@ For decision trees, we used the scikit implementation of the regression model an
 1. Maximum Depth allowed in the tree
 2. Boosting the Tree
 
- ##Maximum Depth of Trees and Stablizing
+ ## Maximum Depth of Trees and Stablizing
 
 <img src="rmsecomparor.png" width="800" />
 
@@ -135,6 +135,13 @@ We used the Adaptive Boosting (AdaBoost) regressor (scikit implementation) that 
 As seen, the boosting did help reduce error, although not significantly. Other methods like pruning were attempted but the tree proved too sensitive to run many of the pruning methods. 
 
 Despite the Adaboost regressor yielding better results, we feared that the decision tree regression had overfit the data so we decided to see if a classification of the star ratings in a random forest classifier would yield better results.
+
+# Decision Tree Take 2
+
+| Type | Accuracy|
+| :---: | :---:|
+|Multi-Class Label | 24.28 | 
+|Binary Label | 74.35 | 
 
 # Random Forest Classifier
 
