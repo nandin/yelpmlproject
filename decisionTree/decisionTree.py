@@ -34,6 +34,7 @@ def main():
 		accuracy[i] = model.score(testData, testStars) * 100
 		print(accuracy[i])
 		accuracyEasy[i] = modelEasy.score(testData, easierTestStars) * 100
+		print(accuracyEasy[i])
 
 	legend = ('Multi-Class Label', 'Binary Label')
 	# two_plot(accuracy, accuracyEasy, "Number of Trees", 'Accuracy (%)', 'Accuracy Difference Between Binary and Multi-Class Labels', legend)
