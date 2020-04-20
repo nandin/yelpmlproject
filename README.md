@@ -100,13 +100,13 @@ We first used PCA to try and find the optimal variable to begin our regression. 
 
 <img src="png_images/varsVcomponents.png" width="800" />
 
-We hypothesized after about six principal components, the rmse of the linear regression would flatten, since that is when the explained variance reaches negligible levels. As expected: the graph of the linear rmse against the number of k components follows:
+We hypothesized after about six principal components, the rmse of the linear regression would flatten, since that is when the explained variance reaches negligible levels. As expected: the graph of the linear rmse against the number of k components and the ridge rmse against the number of k components follow:
 
-<img src="png_images/linearVpca.png" width="800" />
+<p float="left">
+  <img src="png_images/linearVpca.png" width="400" />
+  <img src="png_images/ridgeVpcaNew.png" width="400" /> 
+</p>
 
-Running the data through a Ridge Regression follows the same trend:
-
-<img src="png_images/ridgeVpcaNew.png" width="800" />
 
 The rmse's of both regressions were similar, at 1.48086 for linear and 1.48096 for ridge. For data in the range [1,10], these errors are very high. We can conclude that neither regression is accurate in predicting the data, but one does not perform significantly better than the other.
 
@@ -178,7 +178,7 @@ In order to test this theory, the labels for the dataset were adjust to be binar
 
 <img src="png_images/BinaryVsMultiClass.png" width = "800" />
 
-
+### Results
 
 
 
