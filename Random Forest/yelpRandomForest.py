@@ -1,5 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 # load the dataset
@@ -34,7 +35,7 @@ for i in range(100):
 									criterion = 'entropy', 
 									max_features = 'sqrt')
 	
-	modelEasy = RandomForestClassifier(n_estimators = i + 1, 
+	modelEasy= RandomForestClassifier(n_estimators = i + 1, 
 									bootstrap = True, 
 									criterion = 'entropy', 
 									max_features = 'sqrt')
@@ -51,10 +52,11 @@ MultiClass = plt.scatter(numberTrees, accuracy, c = (0.27, 0.58, 0.37), s  = 30)
 BinaryClass = plt.scatter(numberTrees, accuracyEasy, c = (.15, 0.35, 0.58), s = 30)
 plt.xlabel('Number of Trees')
 plt.ylabel('Accuracy (%)')
-#plt.ylim((0, 50))
-#plt.yticks(np.arange(0, 51, 5))
+plt.ylim((0, 100))
+plt.yticks(np.arange(0, 101, 10))
 plt.xlim(0, 100)
 plt.xticks(np.arange(0, 101, 10))
+#plt.title('Relationship Between Number of Trees and Accuracy')
 plt.title('Accuracy Difference Between Binary and Multi-Class Labels')
 plt.legend((MultiClass, BinaryClass),
            ('Multi-Class Label', 'Binary Label'))
@@ -92,8 +94,8 @@ plt.xlim(0, 100)
 plt.xticks(np.arange(0, 101, 10))
 plt.tight_layout()
 plt.show()
-"""
-"""
+
+
 # Max Depth vs Accuracy
 
 accuracyDepth = np.zeros(90)
@@ -123,17 +125,7 @@ plt.show()
 #NRMSE = RMSE/StandardDev
 #NRMSEeasy = RMSEeasy/easierStandardDev
 #print(accuracy)
-numberTrees = np.arange(1, 101, 1)
-plt.subplot(1,3,1)
-plt.scatter(numberTrees, accuracy, c = 'b')
-plt.scatter(numberTrees, accuracyeasy, c = 'r')
-plt.subplot(1,3,2)
-plt.scatter(numberTrees, RMSE, c = 'b')
-plt.scatter(numberTrees, RMSEeasy, c = 'r')
-plt.subplot(1,3,3)
-plt.scatter(numberTrees, NRMSE, c = 'b')
-plt.scatter(numberTrees, NRMSEeasy, c = 'r')
-plt.show()
+
 
 # Run with optimized values
 modelOpt = RandomForestClassifier(n_estimators = 30,
@@ -145,5 +137,4 @@ modelOpt.fit(trainingData, trainingLabels)
 accuracyOpt = modelOpt.score(testingData, testingLabels) * 100
 print(accuracyOpt)
 """
-
 

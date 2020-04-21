@@ -116,7 +116,7 @@ We decided to explore three parameters and their effect on the accuracy of the R
 
 <img src="png_images/treeVsAccuracy.png" width = "800" />
 
-From the plot above, we found that there is a rise in accuracy from around 21% to around 27% when raising the number of trees in the forest from 1 to 20. After that point, the accuracy oscillates by approximately a 1% around 26%, indicating that additional trees do not impact the accuracy of the Random Forest. 
+From the plot above, we found that there is a rise in accuracy from around 22% to around 27% when raising the number of trees in the forest from 1 to 20. After that point, the accuracy oscillates by approximately a 1% around 26%, indicating that additional trees do not impact the accuracy of the Random Forest. 
 
 ### Split Criterion
 
@@ -140,7 +140,7 @@ A Random Forest Classifier was run with the following parameters:
 | Criterion | Entropy | 
 | Max Depth | 10 |
 
-The resulting accuracy was 28.9%. We think this poor accuracy is likely a result of the way the accuracy is being calculated. With 10 different labels, a high accuracy indicates the model can differentaiate between all the labels well. We think that constructing a model that can predict the star rating of a restaurant to that degree of accuracy isn't plausible with the current data.
+The resulting accuracy was 29.63%. We think this poor accuracy is likely a result of the way the accuracy is being calculated. With 10 different labels, a high accuracy indicates the model can differentaiate between all the labels well. We think that constructing a model that can predict the star rating of a restaurant to that degree of accuracy isn't plausible with the current data.
 
 In order to test this theory, we adjusted the labels for the dataset to become binary labels. We assigned a label of *Bad Restaurant* to a star rating of 2.5 or less, *Good Restaurant* to a star rating of greater than 2.5. We then ran the Random Forest Classifier model over a range of a number of trees using the optimized parameters. The results of the binary model compared to the multi-classification model are shown below. 
 
