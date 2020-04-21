@@ -2,7 +2,32 @@ from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+"""
+# Decision Tree
 
+In this method, we wanted to see if a regressor being could yield a better result based on the continous nature of the Stars ratings. With that, we had to drop PostalCode as a feature as it wouldn't fit the nature of the prediction model. 
+
+For decision trees, we used the scikit implementation of the regression model and attempted two variations:
+
+1. Maximum Depth allowed in the tree
+2. Boosting the Tree
+
+ ## Maximum Depth of Trees and Stablizing
+
+<img src="rmsecomparor.png" width="800" />
+
+Maximum Depth: At first, we experimented with a depth level of 10 and observed how the calculate errors began to go down till it hit a minimum of 0.767078 at the max depth of 5 trees. We decided to use this max depth for both DecisionTreeRegressor and AdaboostRegressor to maintain consistency and because the difference between the AdaboosRegressor min and what was shown at max depth of 5 trees was minimal.
+
+We used RMSE for calculating error. Used r2_score for calculating variance.
+
+We used the Adaptive Boosting (AdaBoost) regressor (scikit implementation) that is essentially increasing the weight of misclassified data points and updating,  then making a new prediction by by adding the weights of each tree times the  prediction of each tree. We hypothesized that boosting would lower our rmse. We used the maximum depth that was used in the previous model to see if boosting had actually improved the model.
+
+<img src="decisiontreeregressors.png" width="800" />
+
+As seen, the boosting did help reduce error, although not significantly. Other methods like pruning were attempted but the tree proved too sensitive to run many of the pruning methods. 
+
+Despite the Adaboost regressor yielding better results, we feared that the decision tree regression had overfit the data so we decided to see if a classification of the star ratings in a random forest classifier would yield better results.
+"""
 def main():
 	# load the dataset
 	data = np.load('FinalDataSet.npy')

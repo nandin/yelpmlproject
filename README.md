@@ -71,33 +71,13 @@ We hypothesized after about six principal components, the rmse of the linear reg
 
 The rmse's of both regressions were similar, at 1.48086 for linear and 1.48096 for ridge. For data in the range [1,10], these errors are very high. We can conclude that neither regression is accurate in predicting the data, but one does not perform significantly better than the other.
 
+# Decision Tree Classifier
 
-# Decision Tree
+We wanted to explore running a classification model on our data to see if restaurants could be split into their star ratings based on their data. The Decision Tree Classifier was chosen as a model to run to create a baseline for the Random Forest Classifier. Generally, Random Forest Classifiers are more robust models than Decision Tree Classifiers. Using the default parameters for the Sci kit learn Decision Tree Classifier model, an accuracy of 24% was found. 
 
-In this method, we wanted to see if a regressor being could yield a better result based on the continous nature of the Stars ratings. With that, we had to drop PostalCode as a feature as it wouldn't fit the nature of the prediction model. 
+We think this poor accuracy is likely a result of the way the accuracy is being calculated. With 10 different labels, a high accuracy indicates the model can differentaiate between all the labels well. We think that constructing a model that can predict the star rating of a restaurant to that degree of accuracy isn't plausible with the current data.
 
-For decision trees, we used the scikit implementation of the regression model and attempted two variations:
-
-1. Maximum Depth allowed in the tree
-2. Boosting the Tree
-
- ## Maximum Depth of Trees and Stablizing
-
-<img src="rmsecomparor.png" width="800" />
-
-Maximum Depth: At first, we experimented with a depth level of 10 and observed how the calculate errors began to go down till it hit a minimum of 0.767078 at the max depth of 5 trees. We decided to use this max depth for both DecisionTreeRegressor and AdaboostRegressor to maintain consistency and because the difference between the AdaboosRegressor min and what was shown at max depth of 5 trees was minimal.
-
-We used RMSE for calculating error. Used r2_score for calculating variance.
-
-We used the Adaptive Boosting (AdaBoost) regressor (scikit implementation) that is essentially increasing the weight of misclassified data points and updating,  then making a new prediction by by adding the weights of each tree times the  prediction of each tree. We hypothesized that boosting would lower our rmse. We used the maximum depth that was used in the previous model to see if boosting had actually improved the model.
-
-<img src="decisiontreeregressors.png" width="800" />
-
-As seen, the boosting did help reduce error, although not significantly. Other methods like pruning were attempted but the tree proved too sensitive to run many of the pruning methods. 
-
-Despite the Adaboost regressor yielding better results, we feared that the decision tree regression had overfit the data so we decided to see if a classification of the star ratings in a random forest classifier would yield better results.
-
-# Decision Tree Take 2
+In order to test this theory, we adjusted the labels for the dataset to become binary labels. We assigned a label of *Bad Restaurant* to a star rating of 2.5 or less, *Good Restaurant* to a star rating of greater than 2.5. We found that using Binary labels greatly increased the accuracy of our models. 
 
 | Type | Accuracy|
 | :---: | :---:|
@@ -140,13 +120,13 @@ A Random Forest Classifier was run with the following parameters:
 | Criterion | Entropy | 
 | Max Depth | 10 |
 
-The resulting accuracy was 29.63%. We think this poor accuracy is likely a result of the way the accuracy is being calculated. With 10 different labels, a high accuracy indicates the model can differentaiate between all the labels well. We think that constructing a model that can predict the star rating of a restaurant to that degree of accuracy isn't plausible with the current data.
+The resulting accuracy was 29.63%. Similar to the Decision Tree Classifier, a the Random Forest Classifier model was constructed using binary labels. 
 
-In order to test this theory, we adjusted the labels for the dataset to become binary labels. We assigned a label of *Bad Restaurant* to a star rating of 2.5 or less, *Good Restaurant* to a star rating of greater than 2.5. We then ran the Random Forest Classifier model over a range of a number of trees using the optimized parameters. The results of the binary model compared to the multi-classification model are shown below. 
+We then ran the Random Forest Classifier model over a range of a number of trees using the optimized parameters. The results of the binary model compared to the multi-classification model are shown below. 
 
 <img src="png_images/BinaryVsMultiClass.png" width = "800" />
 
-We found that the binary model is much more accurate than the multi-classification model. We believe the jump in accuracy is a result of the easing of the modeling for the classifier. 
+As expected, we found that the binary model is much more accurate than the multi-classification model. Also, the Random Forest Classifier was more accurate than the Decison Tree Classifier regardless of the type of label being used. 
 
 ### Results
 
