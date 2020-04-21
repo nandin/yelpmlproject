@@ -129,30 +129,26 @@ A Random Forest Classifier was run with the following parameters:
 | Criterion | Entropy | 
 | Max Depth | 10 |
 
-The resulting accuracy was 29.63%. Similar to the Decision Tree Classifier, a the Random Forest Classifier model was constructed using binary labels. 
-
-We then ran the Random Forest Classifier model over a range of a number of trees using the optimized parameters. The results of the binary model compared to the multi-classification model are shown below. 
+The resulting accuracy was 29.63%. Similar to the Decision Tree Classifier, the Random Forest Classifier model was constructed using binary labels. We then ran the model over a range of a number of trees using the optimized parameters. The results of the binary model compared to the multi-classification model are shown below. 
 
 <img src="png_images/BinaryVsMultiClass.png" width = "800" />
 
 As expected, we found that the binary model is much more accurate than the multi-classification model. Also, the Random Forest Classifier was more accurate than the Decison Tree Classifier regardless of the type of label being used. 
 
-### Results
+# Results
 
-We modelled various Machine Learning Models to predict Yelp star reviews in the city of Las Vegas. Our observations were the following:
+We modeled various Machine Learning Models to predict Yelp star reviews in the city of Las Vegas. Our observations were the following:
 
 a) The real life dataset was noisy and incomplete, and often require a lot of cleaning up. In our case, we removed restaurants and features that did not have at least the majority of the information given.
 
 b) The dataset was reasonably accurately portayed using six principal components. Regardless of which type, regression was not an accurate way to predict the data.
 
-c) .
-
-d) .
+c) The Random Forest Classifier performed slightly better than the Decision Forest Classifier as expected. However, both classification models performed poorly when attempting to predict star ratings. Binary classification improved the model's accuracy but shows the limitations of our models.   
 
 We unfortunately did not get the strict results that we were expecting, in which we could tell a resturant owner to fix x, y, and z to improve their ratings. If anything, this goes to show that consumers in Las Vegas expect a well-rounded experience. Restaurant owners should take care to offer the same amentities as their competitors to give themselves the best chance at high rating.
 
 
-### References
+# References
 
 [1] Ahmed AM, Rizaner A, Ulusoy AH (2018) A novel decision tree classification based on post-pruning with Bayes minimum risk. PLoS ONE 13(4): e0194168. https://doi.org/10.1371/journal.pone.0194168
 
