@@ -68,8 +68,17 @@ We hypothesized after about six principal components, the rmse of the linear reg
   <img src="png_images/ridgeVpcaNew.png" width="400" /> 
 </p>
 
+As the Lasso regression works similarly to dimensionality reduction, it did not make sense to run it with different numbers of k components.
 
-The rmse's of both regressions were similar, at 1.48086 for linear and 1.48096 for ridge. For data in the range [1,10], these errors are very high. We can conclude that neither regression is accurate in predicting the data, but one does not perform significantly better than the other.
+### Results
+
+| Type | RMSE Value|
+| :---: | :---:|
+|Linear | 1.48086 | 
+|Ridge | 1.48096 | 
+|Lasso | 1.70771 | 
+
+For data in the range [1,10], these errors are very high. We can conclude that none of these regressions are accurate in predicting the data, but the linear and ridge are the best candidates.
 
 # Decision Tree Classifier
 

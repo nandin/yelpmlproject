@@ -12,6 +12,7 @@ def main():
 	stars = data.T[11]
 	data = (data.T[0:11]).T
 	# plotVariance(data)
+	# lasso(data, stars)
 
 	# pca over all the components
 	linearAccuracy = np.zeros(10)
@@ -43,6 +44,13 @@ def main():
 	plotRegressions(linearAccuracy, ridgeAccuracy)
 	# plotVariance(data)
 
+def lasso(data, stars):
+	trainData, testData, trainStars, testStars = split(data, stars)
+	clf = Lasso()
+	clf.fit(trainData, trainStars)
+	predStars = clf.predict(testData)
+	rmseResult = rmse(predStars, testStars)
+	print(rmseResult)
 
 def split(arr, labels):
 	trainingPercentage = 0.7
