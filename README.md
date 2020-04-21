@@ -200,6 +200,17 @@ d) .
 We unfortunately did not get the strict results that we were expecting, in which we could tell a resturant owner to fix x, y, and z to improve their ratings. If anything, this goes to show that consumers in Las Vegas expect a well-rounded experience. Restaurant owners should take care to offer the same amentities as their competitors to give themselves the best chance at high rating.
 
 
+###References
+
+Wright, Lindsey, "Classifying textual fast food restaurant reviews quantitatively using text mining and supervised machine learning algorithms" (2018). Undergraduate Honors Theses. Paper 451. https://dc.etsu.edu/honors/451
+
+Fan, Mingming & Khademi, Maryam. (2014). Predicting a Business Star in Yelp from Its Reviews Text Alone. 
+
+Ahmed AM, Rizaner A, Ulusoy AH (2018) A novel decision tree classification based on post-pruning with Bayes minimum risk. PLoS ONE 13(4): e0194168. https://doi.org/10.1371/journal.pone.0194168
+
+
+Yang, Sung-Byung & Hlee, Sunyoung & Koo, Chulmo. (2017). An empirical examination of online restaurant reviews on Yelp.com: A dual coding theory perspective. International Journal of Contemporary Hospitality Management. 29. 817-839. 10.1108/IJCHM-11-2015-0643. 
+
 
 
 
