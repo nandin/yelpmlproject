@@ -26,47 +26,10 @@ The resulting dataset contained information on 42,152 restaurants. We decided to
 We decided to keep the dataset in the United States so Las Vegas was chosen as the location to further filter our data. 
 
 ## Cleaning the Las Vegas Restaurant Dataset
-We found that the completeness of each feature and the completeness of each restaurant's data were main concerns with the dataset. The following procedure was used to clean the data. 
-
-1. Features with less than 15% completeness were eliminated from the dataset. Eliminated features are shown below:
-    + By Appointment Only
-    + Coat Check
-    + Drive Thru
-    + Smoking
-    + Dogs Allowed
-    + BYOB
-    + Happy Hour
-    + Corkage
-    + Business Accepts Bitcoin
-    + Ages Allowed
-    + Accepts Insurance
-    + Dietary Restrictions
-    + Music
-    + Counter Service
-    + Best Nights
-    + Open 24 Hours
-    + Good For Dancing
-    + Hair Specializes In
-2. Restaurants with less than 80% completeness of data were discarded. 
-    + Number of Restaurants Kept: 17737
-    + Number of Restaurants Eliminated: 24415
-3. Features with less than 80% completeness were eliminated from the dataset. Eliminated features are shown below: 
-    + Business Accepts Credit Cards
-    + Wheelchair Accesible
-    + Good for Meal
-    + Restaurants Table Service
-4. Features that could not be transformed into values that a machine learning model could use as data were deleted next. Eliminated feature are shown below:
-    + Name
-    + Business Parking
-    + Address 
-    + Categories 
-    + City 
-    + Hours 
-    + State 
-    + Business Id
+We found that the main concerns with the dataset were the completeness of each feature and the completeness of each restaurant's dataset. After parsing the data, 63% of the features were deleted because there wasn't enough data and 52% of the restaurants in the dataset were cut for the same reason. 
     
 ## Feature Selection
-The resulting dataset contained information about 2,503 different restaurants in the Las Vegas area, with each restaurant consisting of data from 22 different features. In order to reduce the number of features in our dataset even further, a correlation matrix was created to determine the relationship between various features and eliminate features with weak correlations to our label. 
+The resulting dataset contained information about 2,503 different restaurants in the Las Vegas area, with 22 different features each. In order to reduce the number of features in our dataset even further, we created a correlation matrix to determine the relationship between the features and the label. 
 
 <img src="png_images/FeatureCorrelation2Label.png" width="800" />
 
