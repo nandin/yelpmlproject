@@ -32,19 +32,19 @@ We decided to keep the dataset in the United States so Las Vegas was chosen as t
 We found that the main concerns with the dataset were the completeness of each feature and the completeness of each restaurant's dataset. After parsing the data, 63% of the features were deleted because there wasn't enough data and 52% of the restaurants in the dataset were cut for the same reason. 
     
 ## Feature Selection
-The resulting dataset contained information about 2,503 different restaurants in the Las Vegas area, with 22 different features each. In order to reduce the number of features in our dataset even further, we created a correlation matrix to determine the relationship between the features and the label. 
+The resulting dataset contained information about 2,503 different restaurants in the Las Vegas area, with 22 different features each. To reduce the number of features we created a correlation matrix to examine relationships between our features and our label.  
 
 <img src="png_images/FeatureCorrelation2Label.png" width="800" />
 
-Some features like *Good for Groups* and *Good for Kids*, which seemed like they would logically have some influence on the rating of a restaurant, ultimately had very little correlation to the number of stars a restaurant recieved. Features, like the *Ambience* and *Price Range* of the restaurant, were suspected of being indicators of the reating of a restaurant. The correlation matrix confirmed that these features had a stronger correlation to the number of stars a restaurant has than other features. An absolute value of a correlation greater than 0.1 was set as the cut off for which features will be kept in the dataset. 
+Some features like *Good for Groups* and *Good for Kids*, which seemed like they would have some influence on the rating of a restaurant, ultimately had very little correlation to the number of stars a restaurant recieved. Other features like *Ambience* and *Price Range*, were confirmed of having a stronger correlation to the number of stars a restaurant recieves. An absolute value of a correlation greater than 0.1 was set as the cut off for which features will be kept in the dataset. 
 
-To further reduce the number of features in the dataset, the overall correlation matrix was analyzed in order to determine if any features were strongly related to one or another. If one feature had a strong correlation to another feature, one of them could be discarded and the variance in the data would not decrease significantly. 
+We used the full correlation matrix to analyze the correlation between features and see if the number of feattures could be further reduced.
 
 <img src="png_images/CorrelationMatrix.png" width = "900" />
 
-The strongest correlation between two features is found to be 0.58 between *Alcohol* and *Price Range*. However, no two features seem correlated enough to each other to reasonably leave them out of the dataset, so no changes are made. 
+We found that the strongest correlation between two features is only 0.58 between *Alcohol* and *Price Range*. We didn't believe any two features seemed correlated enough to each other leave them out of the dataset, so no changes were made. 
 
-The final dataset consists of 11 features and 2,503 restaurants. The corresponding label for each restaurant is the star rating they have recieved in yelp. 
+The final dataset consists of 11 features and 2,503 restaurants. The corresponding label for each restaurant is the star rating they have recieved in Yelp. 
 
 ---
 
