@@ -1,6 +1,9 @@
 # Introduction
 Now more than ever, people do not step foot into a restaurant without copious amounts of research on the internet. Particularly evident in a tourist-friendly city like Las Vegas, restaurant owners continually search for the perfect combination of offerings that will make consumers give them a good review. An investment in better reviews will hopefully lead to a greater influx of consumers. Our study focuses on Yelp, which is rated the most frequented review site. We hope to identify the key factors that contribute to restaurants obtaining a higher score in Las Vegas. By predicting the review score after particular investments, we will help restaurant owners direct their future investments. 
 
+# What People Have Already Done?
+Text mining has been used significantly in attempting to generate a quantitative value based on the opinion written by the customers reviews using manual clustering for data  preparation as well as decision tree and random forest classifiers for the methods [4, 5]. Furthermore, other studies generated a bag of words and used regression problems using linear regression, support vector regression, support vector regression, and decision tree regression [3]. Other studies used decision tree classifiers post-pruning that could produce better classification accuracy [1]. Closest to our goal was an attempt at predicting general restaurant reviews through similar features using neural network network analysis although they focused on sales performance as well [2].
+
 # Visualizing the Data
 <p float="left">
   <img src="png_images/nevadaBigMap.png" width="400" />
@@ -202,13 +205,16 @@ We unfortunately did not get the strict results that we were expecting, in which
 
 ### References
 
-Ahmed AM, Rizaner A, Ulusoy AH (2018) A novel decision tree classification based on post-pruning with Bayes minimum risk. PLoS ONE 13(4): e0194168. https://doi.org/10.1371/journal.pone.0194168
+[1] Ahmed AM, Rizaner A, Ulusoy AH (2018) A novel decision tree classification based on post-pruning with Bayes minimum risk. PLoS ONE 13(4): e0194168. https://doi.org/10.1371/journal.pone.0194168
 
-Fan, Mingming & Khademi, Maryam. (2014). Predicting a Business Star in Yelp from Its Reviews Text Alone. 
+[2] Chong, Alain Yee Loong, et al. “Predicting Online Product Sales via Online Reviews, Sentiments, and Promotion Strategies.” International Journal of Operations & Production Management, vol. 36, no. 4, 2016, pp. 358–383., doi:10.1108/ijopm-03-2015-0151.
 
-Wright, Lindsey, "Classifying textual fast food restaurant reviews quantitatively using text mining and supervised machine learning algorithms" (2018). Undergraduate Honors Theses. Paper 451. https://dc.etsu.edu/honors/451
+[3] Fan, Mingming & Khademi, Maryam. (2014). Predicting a Business Star in Yelp from Its Reviews Text Alone. 
 
-Yang, Sung-Byung & Hlee, Sunyoung & Koo, Chulmo. (2017). An empirical examination of online restaurant reviews on Yelp.com: A dual coding theory perspective. International Journal of Contemporary Hospitality Management. 29. 817-839. 10.1108/IJCHM-11-2015-0643. 
+[4] Lunkad, Kartik. (2015). Prediction of Yelp Rating using Yelp Reviews. 
+
+[5] Wright, Lindsey, "Classifying textual fast food restaurant reviews quantitatively using text mining and supervised machine learning algorithms" (2018). Undergraduate Honors Theses. Paper 451. https://dc.etsu.edu/honors/451
+
 
 
 
