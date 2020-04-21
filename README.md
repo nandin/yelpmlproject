@@ -202,12 +202,11 @@ We unfortunately did not get the strict results that we were expecting, in which
 
 ### References
 
-Wright, Lindsey, "Classifying textual fast food restaurant reviews quantitatively using text mining and supervised machine learning algorithms" (2018). Undergraduate Honors Theses. Paper 451. https://dc.etsu.edu/honors/451
+Ahmed AM, Rizaner A, Ulusoy AH (2018) A novel decision tree classification based on post-pruning with Bayes minimum risk. PLoS ONE 13(4): e0194168. https://doi.org/10.1371/journal.pone.0194168
 
 Fan, Mingming & Khademi, Maryam. (2014). Predicting a Business Star in Yelp from Its Reviews Text Alone. 
 
-Ahmed AM, Rizaner A, Ulusoy AH (2018) A novel decision tree classification based on post-pruning with Bayes minimum risk. PLoS ONE 13(4): e0194168. https://doi.org/10.1371/journal.pone.0194168
-
+Wright, Lindsey, "Classifying textual fast food restaurant reviews quantitatively using text mining and supervised machine learning algorithms" (2018). Undergraduate Honors Theses. Paper 451. https://dc.etsu.edu/honors/451
 
 Yang, Sung-Byung & Hlee, Sunyoung & Koo, Chulmo. (2017). An empirical examination of online restaurant reviews on Yelp.com: A dual coding theory perspective. International Journal of Contemporary Hospitality Management. 29. 817-839. 10.1108/IJCHM-11-2015-0643. 
 
