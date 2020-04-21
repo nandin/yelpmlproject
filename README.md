@@ -135,7 +135,7 @@ The resulting accuracy was 29.63%. Similar to the Decision Tree Classifier, the 
 
 As expected, we found that the binary model is much more accurate than the multi-classification model. Also, the Random Forest Classifier was more accurate than the Decison Tree Classifier regardless of the type of label being used. 
 
-# Results
+# Conclusion
 
 We modeled various Machine Learning Models to predict Yelp star reviews in the city of Las Vegas. Our observations were the following:
 
