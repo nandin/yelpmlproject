@@ -51,7 +51,7 @@ The final dataset consists of 11 features and 2,503 restaurants. The correspondi
 # Methods
 A supervised learning approach for predictive data analysis, specifically tree-based models and regression, were utilized. 
 
-+ Regression: Linear Regression and Ridge Regression
++ Regression: Linear Regression, Ridge Regression, and Lasso Regression
 + Tree-based Models: Decision Tree and Random Forest
 
 The Sci-kit learn packages for the chosen regression and tree-based models were used. A 70 - 30 split was used in order to split the data into a training set and a testing set. 
