@@ -38,7 +38,7 @@ The resulting dataset contained information about 2,503 different restaurants in
 
 Some features like *Good for Groups* and *Good for Kids*, which seemed like they would have some influence on the rating of a restaurant, ultimately had very little correlation to the number of stars a restaurant recieved. Other features, like *Ambience* and *Price Range*, were confirmed of having a stronger correlation to the number of stars a restaurant recieves. We set the cut off for which features will be kepty in the dataset at the absolute value of a correlation greater than 0.1. 
 
-We used the full correlation matrix to analyze the correlation between features and see if the number of feattures could be further reduced.
+We used the full correlation matrix to analyze the correlation between features and see if the number of features could be further reduced.
 
 <img src="png_images/CorrelationMatrix.png" width = "900" />
 
@@ -106,29 +106,29 @@ Despite the Adaboost regressor yielding better results, we feared that the decis
 
 # Random Forest Classifier
 
-When running the Random Forest Classifier on the dataset, three parameters were chosen to be explored in determining their effect on the accuracy of the model. The three parameters were: 
+We decided to explore three parameters and their effect on the accuracy of the Random Forest Classifier model on our dataset. 
 
-1. The number of trees in the forest
-2. The criterion for deciding the split when building a tree
-3. The maximum depth for each of the trees in the forest
+1. The Number of Trees in the Forest
+2. The Splitting Criterion
+3. The Maximum Depth of a Tree
 
 ### Number of Trees in the Forest
 
 <img src="png_images/treeVsAccuracy.png" width = "800" />
 
-From the plot above, there seems to be a rise in accuracy from around 21% to around 27% when raising the number of trees in the forest from 1 to 20. After that point, the accuracy oscillates by approximately a percent around 26%, indicating that additional trees do not impact the accuracy of the Random Forest. 
+From the plot above, we found that there is a rise in accuracy from around 21% to around 27% when raising the number of trees in the forest from 1 to 20. After that point, the accuracy oscillates by approximately a 1% around 26%, indicating that additional trees do not impact the accuracy of the Random Forest. 
 
 ### Split Criterion
 
 <img src="png_images/SplitCriterionEffect.png" width = "800" />
 
-The two splitting criterion that Random Forest Classifier can use are the Gini Impurity and Information Gain Entropy. The number of trees in the model were varied in order to see if any differences in accuracy could be maintained. From the plot above, there seems to be no relationship between the accuracy of the Random Forest model and the splitting criterion it utilizes. 
+The two splitting criterion that the Random Forest Classifier can use are the Gini Impurity and Information Gain Entropy. We varied the number of trees in the model to see if there were consistent differences in accuracy. From the plot above, we found that there is no relationship between the accuracy of the model and the splitting criterion. 
 
 ### Maximum Depth of Trees
 
 <img src="png_images/treeDepthVsAccuracy.png" width = "800" />
 
-A range from 10-100 was examined for the maximum depth of a tree and its effect on the accuracy of the model. The model's accuracy seems to peak at around a depth of 10, before stabilizing around 27 %. Perhaps by minimizing the depth of the tree, the model avoids overfitting the training data and creates better predictions. 
+We examined a range from 10-100 for the maximum depth of a tree and its effect on the accuracy of the model. The model's accuracy peaks at around a depth of 10, before stabilizing around 27%. We think that by minimizing the depth of the tree, the model avoids overfitting the training data and creates better predictions. 
 
 ### Results
 
@@ -140,11 +140,13 @@ A Random Forest Classifier was run with the following parameters:
 | Criterion | Entropy | 
 | Max Depth | 10 |
 
-The resulting accuracy was 28.9%. This poor accuracy is likely a result of the way the accuracy is being calculated. As there are 10 different labels, a high accuracy would mean the model is able to differentiate between all of the labels well. Perhaps creating a model that can predict the star rating of a restaurant to that degree of accuracy isn't plausible with the current data. 
+The resulting accuracy was 28.9%. We think this poor accuracy is likely a result of the way the accuracy is being calculated. With 10 different labels, a high accuracy indicates the model can differentaiate between all the labels well. We think that constructing a model that can predict the star rating of a restaurant to that degree of accuracy isn't plausible with the current data.
 
-In order to test this theory, the labels for the dataset were adjust to be binary labels. A star rating of 2.5 or less was labeled a *Bad Restaurant* and a star rating of greater than 2.5 was labeled a *Good Restaurant*. The Random Forest Classifier was run over a range of a number of trees using the entropy criterion for splitting and a maximum depth per tree of 10. The results are shown below: 
+In order to test this theory, we adjusted the labels for the dataset to become binary labels. We assigned a label of *Bad Restaurant* to a star rating of 2.5 or less, *Good Restaurant* to a star rating of greater than 2.5. We then ran the Random Forest Classifier model over a range of a number of trees using the optimized parameters. The results of the binary model compared to the multi-classification model are shown below. 
 
 <img src="png_images/BinaryVsMultiClass.png" width = "800" />
+
+We found that the binary model is much more accurate than the multi-classification model. We believe the jump in accuracy is a result of the easing of the modeling for the classifier. 
 
 ### Results
 
